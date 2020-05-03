@@ -1,5 +1,5 @@
 use actix_web::{web, App, HttpResponse, HttpServer, Responder};
-use actix_web::middleware::Logger;
+//use actix_web::middleware::Logger;
 use env_logger::Env;
 use serde::Serialize;
 
@@ -26,7 +26,7 @@ async fn main() -> std::io::Result<()> {
 
     HttpServer::new(|| {
         App::new()
-            .wrap(Logger::new("%t | %s | %r | %a | %Ts"))
+            //.wrap(Logger::new("%t | %s | %r | %a | %Ts"))
             .route("/", web::get().to(index))
             .route("/json", web::get().to(status_json))
     })
