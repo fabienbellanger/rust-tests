@@ -20,7 +20,22 @@ pub fn index() -> &'static str {
 
 #[get("/json")]
 pub fn json() -> Json<Task> {
-    Json(Task{id: 12, name: "Coucou", message: String::from("Mon message")})
+    Json(Task{
+        id: 12, name: "Coucou ceci est mon nom", 
+        message: String::from("Mon message doit être un peu long pour augmenter la taille"),
+    })
+}
+
+#[get("/big-json")]
+pub fn big_json() -> Json<Vec<Task>> {
+    let mut v: Vec<Task> = Vec::new();
+    for _ in 0..100_000 {
+        v.push(Task{
+            id: 12, name: "Coucou ceci est mon nom", 
+            message: String::from("Mon message doit être un peu long pour augmenter la taille"),
+        });
+    }
+    Json(v)
 }
 
 #[get("/utc-time")]

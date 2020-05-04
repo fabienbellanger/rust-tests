@@ -8,6 +8,6 @@ mod fairing;
 fn main() {
     rocket::ignite()
         .attach(fairing::RequestTimer)
-        .mount("/", routes![handler::index, handler::json, handler::time_now])
+        .mount("/", routes![handler::index, handler::json, handler::big_json, handler::time_now])
         .launch();
 }
