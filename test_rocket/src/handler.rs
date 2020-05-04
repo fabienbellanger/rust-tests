@@ -23,7 +23,7 @@ pub fn json() -> Json<Task> {
     Json(Task{id: 12, name: "Coucou", message: String::from("Mon message")})
 }
 
-#[get("/time")]
+#[get("/utc-time")]
 pub fn time_now() -> String {
     let now: DateTime<Utc> = Utc::now();
 
