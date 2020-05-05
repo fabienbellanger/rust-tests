@@ -8,7 +8,7 @@ edition = "2018"
 
 [dependencies]
 rocket = "0.4.4"
-rocket_contrib = "0.4.4" # { version = "0.4.4", default-features = false, features = ["json", "diesel_mysql_pool"] }
+rocket_contrib = { version = "0.4.4", default-features = false, features = ["json", "diesel_mysql_pool"] }
 serde = { version = "1.0", features = ["derive"] }
 chrono = { version = "0.4", features = ["serde"] }
-# diesel = { version = "1.4", features = ["mysql", "chrono"] }
+diesel = { version = "1.4", features = ["mysql", "chrono"] }
