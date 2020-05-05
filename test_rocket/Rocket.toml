@@ -24,3 +24,6 @@ keep_alive = 5
 log = "critical"
 # secret_key = [randomly generated at launch]
 limits = { forms = 32768 }
+
+[global.databases]
+mysql = { url = "mysql://root:root@172.21.0.1:3306/pos" }
