@@ -15,7 +15,9 @@ struct MyDatabase(diesel::MysqlConnection);
 
 #[get("/posts")]
 fn get_posts(conn: MyDatabase) -> models::Post {
-    models::posts::filter().load(&*conn)
+    posts.filter()
+        .limit(1)
+        .load::<models::Post>(&*conn)
 }
 
 fn main() {
