@@ -29,7 +29,7 @@ pub fn json() -> Json<Task> {
 #[get("/big-json")]
 pub fn big_json() -> Json<Vec<Task>> {
     let mut v: Vec<Task> = Vec::new();
-    for _ in 0..100_000 {
+    for _ in 0..10_000 {
         v.push(Task{
             id: 12, name: "Coucou ceci est mon nom", 
             message: String::from("Mon message doit être un peu long pour augmenter la taille"),
