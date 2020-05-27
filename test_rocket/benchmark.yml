@@ -1,0 +1,17 @@
+concurrency: 10
+base: 'http://localhost:8000'
+iterations: 100
+rampup: 5
+
+plan:
+    # - name: json
+    #   request:
+    #     url: /json
+    
+    # - name: utcTime
+    #   request:
+    #     url: /utc-time
+    
+    - name: bigJson
+      request:
+        url: /big-json
