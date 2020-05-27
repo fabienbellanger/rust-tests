@@ -1,7 +1,7 @@
 #![feature(proc_macro_hygiene, decl_macro)]
 
 #[macro_use] extern crate rocket;
-#[macro_use] extern crate rocket_contrib;
+// #[macro_use] extern crate rocket_contrib;
 
 // use rocket_contrib::databases::diesel;
 
@@ -22,7 +22,7 @@ mod models;
 
 fn main() {
     rocket::ignite()
-        //.attach(fairing::RequestTimer)
+        .attach(fairing::RequestTimer)
         // .attach(MyDatabase::fairing())
         .mount("/", routes![
             handler::index, 

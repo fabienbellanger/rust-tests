@@ -3,7 +3,7 @@ address = "localhost"
 port = 8000
 # workers = [number of cpus * 2]
 keep_alive = 10
-log = "critical"
+log = "normal"
 #secret_key = [randomly generated at launch]
 limits = { forms = 32768 }
 
