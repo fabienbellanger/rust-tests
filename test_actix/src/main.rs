@@ -1,36 +1,24 @@
 use actix_web::{web, App, HttpResponse, HttpServer, Responder};
 use actix_web::middleware::Logger;
 use env_logger::Env;
-use serde::Serialize;
 
-#[derive(Serialize)]
-struct Status {
-    status: &'static str,
-    message: String,
-}
+mod models;
 
 async fn index() -> impl Responder {
     HttpResponse::Ok().body("Hello world!\n")
 }
 
-async fn status_json() -> Result<web::Json<Status>, ()> {
-    Ok(web::Json(Status {
+async fn status_json() -> Result<web::Json<models::Status>, ()> {
+    Ok(web::Json(models::Status {
         status: "OK",
         message: "Success".to_owned(),
     }))
 }
 
-#[derive(Serialize)]
-pub struct Task {
-    id: u32,
-    name: &'static str,
-    message: String,
-}
-
-async fn big_json() -> Result<web::Json<Vec<Task>>, ()> {
-    let mut v: Vec<Task> = Vec::new();
+async fn big_json() -> Result<web::Json<Vec<models::Task>>, ()> {
+    let mut v: Vec<models::Task> = Vec::new();
     for i in 0..10_000 {
-        v.push(Task{
+        v.push(models::Task{
             id: i, 
             name: "Coucou ceci est mon nom", 
             message: String::from("Mon message doit être un peu long pour augmenter la taille"),
